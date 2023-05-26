@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Refine, GitHubBanner, AuthProvider } from "@pankod/refine-core";
+import { Refine, AuthProvider } from "@pankod/refine-core";
 import {
   notificationProvider,
   RefineSnackbarProvider,
@@ -13,6 +13,7 @@ import {
 import {
   AccountCircleOutlined,
   ChatBubbleOutline,
+  Message,
   PeopleAltOutlined,
   StarOutlineRounded,
   VillaOutlined,
@@ -107,7 +108,6 @@ function App() {
 
   return (
     <>
-      <GitHubBanner />
       <ColorModeContextProvider>
         <CssBaseline />
         <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
@@ -120,28 +120,32 @@ function App() {
             resources={[
               {
                 name: "properties",
-                list: MuiInferencer,
+                list: AllProperties,
+                show: PropertyDetails,
+                create: CreateProperty,
+                edit: EditProperty,
                 icon: <VillaOutlined />,
               },
               {
                 name: "agents",
-                list: MuiInferencer,
+                list: Agents,
+                show: AgentProfile,
                 icon: <PeopleAltOutlined />,
               },
               {
                 name: "reviews",
-                list: MuiInferencer,
+                list: Home,
                 icon: <StarOutlineRounded />,
               },
               {
                 name: "messages",
-                list: MuiInferencer,
+                list: Message,
                 icon: <ChatBubbleOutline />,
               },
               {
                 name: "my-profile",
                 options: { label: "My Profile " },
-                list: MuiInferencer,
+                list: MyProfile,
                 icon: <AccountCircleOutlined />,
               },
             ]}

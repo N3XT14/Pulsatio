@@ -26,14 +26,7 @@ export const Header: React.FC = () => {
           width="100%"
           justifyContent="flex-end"
           alignItems="center"
-        >
-          <IconButton
-            onClick={() => {
-              setMode();
-            }}
-          >
-            {mode === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
-          </IconButton>
+        >          
           <Stack
             direction="row"
             gap="16px"
