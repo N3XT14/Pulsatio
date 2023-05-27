@@ -1,6 +1,7 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
+
 import connectDB from './mongodb/connect.js';
 import userRouter from './routes/user.routes.js';
 import propertyRouter from './routes/property.routes.js';
@@ -12,22 +13,20 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 
 app.get('/', (req, res) => {
-    res.send({message: 'Hello World'});
-});
+  res.send({ message: 'Hello World!' });
+})
 
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/users', propertyRouter);
+app.use('/api/v1/properties', propertyRouter);
 
 const startServer = async () => {
-    try {
-        //Connect to database        
-        connectDB(process.env.MONGODB_URL);
+  try {
+    connectDB(process.env.MONGODB_URL);
 
-        const port = process.env.PORT || 5000;    
-        app.listen(port, () => `Server running on port ${port} 🔥`);        
-    } catch (error) {
-        console.log(error);
-    }
-};
+    app.listen(8080, () => console.log('Server started on port http://localhost:8080'));
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 startServer();

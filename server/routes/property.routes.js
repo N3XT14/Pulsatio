@@ -1,12 +1,8 @@
 import express from 'express';
 
 import {
-    createProperty,
-    deleteProperty,
-    getAllProperties,
-    getPropertyDetail,
-    updateProperty,
-} from '../controllers/property.controller.js';
+  createProperty, deleteProperty, getAllProperties, getPropertyDetail, updateProperty
+} from '../controllers/property.controller.js'
 
 const router = express.Router();
 
